@@ -1,0 +1,2015 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20191.19.0515.1028                               -->
+<workbook original-version='18.1' source-build='2019.1.4 (20191.19.0515.1028)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='teams+' inline='true' name='federated.1g2h84q0rvn71y1111p1u0l1kilb' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='teams' name='textscan.1xwvnq30mhst8015ng6xq0tk5w55'>
+            <connection class='textscan' directory='C:/Users/drewm/Documents/Grad School/INFS776/Group Project/export files' filename='teams.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[scores.csv].[F1]' />
+              <expression op='[weather.csv].[F1]' />
+            </expression>
+          </clause>
+          <relation join='left' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[scores.csv].[F1]' />
+                <expression op='[spreads.csv].[F1]' />
+              </expression>
+            </clause>
+            <relation join='left' type='join'>
+              <clause type='join'>
+                <expression op='='>
+                  <expression op='[scores.csv].[F1]' />
+                  <expression op='[teamScoring.csv].[F1]' />
+                </expression>
+              </clause>
+              <relation join='left' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[scores.csv].[F1]' />
+                    <expression op='[nflpickem.csv].[F1]' />
+                  </expression>
+                </clause>
+                <relation connection='textscan.1xwvnq30mhst8015ng6xq0tk5w55' name='scores.csv' table='[scores#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                    <column datatype='integer' name='F1' ordinal='0' />
+                    <column datatype='string' name='game_id' ordinal='1' />
+                    <column datatype='integer' name='schedule_season' ordinal='2' />
+                    <column datatype='integer' name='schedule_week' ordinal='3' />
+                    <column datatype='date' name='schedule_date' ordinal='4' />
+                    <column datatype='string' name='team_home_id' ordinal='5' />
+                    <column datatype='string' name='team_away_id' ordinal='6' />
+                    <column datatype='integer' name='score_home' ordinal='7' />
+                    <column datatype='integer' name='score_away' ordinal='8' />
+                    <column datatype='boolean' name='stadium_neutral' ordinal='9' />
+                    <column datatype='boolean' name='schedule_playoff' ordinal='10' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1xwvnq30mhst8015ng6xq0tk5w55' name='nflpickem.csv' table='[nflpickem#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                    <column datatype='integer' name='F1' ordinal='0' />
+                    <column datatype='integer' name='schedule_week' ordinal='1' />
+                    <column datatype='date' name='schedule_date' ordinal='2' />
+                    <column datatype='string' name='team_home_id' ordinal='3' />
+                    <column datatype='string' name='team_away_id' ordinal='4' />
+                    <column datatype='string' name='team_winner_predicted' ordinal='5' />
+                    <column datatype='string' name='team_winner_ats' ordinal='6' />
+                    <column datatype='real' name='team_home_win_prob' ordinal='7' />
+                    <column datatype='real' name='team_away_win_prob' ordinal='8' />
+                    <column datatype='string' name='over_under_pick' ordinal='9' />
+                    <column datatype='real' name='score_total_predicted' ordinal='10' />
+                  </columns>
+                </relation>
+              </relation>
+              <relation connection='textscan.1xwvnq30mhst8015ng6xq0tk5w55' name='teamScoring.csv' table='[teamScoring#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='string' name='game_id' ordinal='1' />
+                  <column datatype='integer' name='schedule_season' ordinal='2' />
+                  <column datatype='integer' name='schedule_week' ordinal='3' />
+                  <column datatype='date' name='schedule_date' ordinal='4' />
+                  <column datatype='string' name='team_home_id' ordinal='5' />
+                  <column datatype='string' name='team_away_id' ordinal='6' />
+                  <column datatype='string' name='score_avg_pts_for_roll_lag.x' ordinal='7' />
+                  <column datatype='string' name='score_avg_pts_against_roll_lag.x' ordinal='8' />
+                  <column datatype='string' name='score_avg_pts_for_roll_lag.y' ordinal='9' />
+                  <column datatype='string' name='score_avg_pts_against_roll_lag.y' ordinal='10' />
+                </columns>
+              </relation>
+            </relation>
+            <relation connection='textscan.1xwvnq30mhst8015ng6xq0tk5w55' name='spreads.csv' table='[spreads#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                <column datatype='integer' name='F1' ordinal='0' />
+                <column datatype='string' name='game_id' ordinal='1' />
+                <column datatype='integer' name='schedule_season' ordinal='2' />
+                <column datatype='integer' name='schedule_week' ordinal='3' />
+                <column datatype='date' name='schedule_date' ordinal='4' />
+                <column datatype='string' name='team_favorite_id' ordinal='5' />
+                <column datatype='string' name='spread_favorite' ordinal='6' />
+                <column datatype='string' name='over_under_line' ordinal='7' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='textscan.1xwvnq30mhst8015ng6xq0tk5w55' name='weather.csv' table='[weather#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='string' name='game_id' ordinal='1' />
+              <column datatype='integer' name='schedule_season' ordinal='2' />
+              <column datatype='integer' name='schedule_week' ordinal='3' />
+              <column datatype='date' name='schedule_date' ordinal='4' />
+              <column datatype='string' name='team_home_id' ordinal='5' />
+              <column datatype='string' name='stadium' ordinal='6' />
+              <column datatype='string' name='weather_temperature' ordinal='7' />
+              <column datatype='string' name='weather_wind_mph' ordinal='8' />
+              <column datatype='real' name='weather_humidity' ordinal='9' />
+              <column datatype='string' name='weather_detail' ordinal='10' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[F1 (nflpickem.csv)]' value='[nflpickem.csv].[F1]' />
+          <map key='[F1 (spreads.csv)]' value='[spreads.csv].[F1]' />
+          <map key='[F1 (teamScoring.csv)]' value='[teamScoring.csv].[F1]' />
+          <map key='[F1 (weather.csv)]' value='[weather.csv].[F1]' />
+          <map key='[F1]' value='[scores.csv].[F1]' />
+          <map key='[game_id (spreads.csv)]' value='[spreads.csv].[game_id]' />
+          <map key='[game_id (teamScoring.csv)]' value='[teamScoring.csv].[game_id]' />
+          <map key='[game_id (weather.csv)]' value='[weather.csv].[game_id]' />
+          <map key='[game_id]' value='[scores.csv].[game_id]' />
+          <map key='[over_under_line]' value='[spreads.csv].[over_under_line]' />
+          <map key='[over_under_pick]' value='[nflpickem.csv].[over_under_pick]' />
+          <map key='[schedule_date (nflpickem.csv)]' value='[nflpickem.csv].[schedule_date]' />
+          <map key='[schedule_date (spreads.csv)]' value='[spreads.csv].[schedule_date]' />
+          <map key='[schedule_date (teamScoring.csv)]' value='[teamScoring.csv].[schedule_date]' />
+          <map key='[schedule_date (weather.csv)]' value='[weather.csv].[schedule_date]' />
+          <map key='[schedule_date]' value='[scores.csv].[schedule_date]' />
+          <map key='[schedule_playoff]' value='[scores.csv].[schedule_playoff]' />
+          <map key='[schedule_season (spreads.csv)]' value='[spreads.csv].[schedule_season]' />
+          <map key='[schedule_season (teamScoring.csv)]' value='[teamScoring.csv].[schedule_season]' />
+          <map key='[schedule_season (weather.csv)]' value='[weather.csv].[schedule_season]' />
+          <map key='[schedule_season]' value='[scores.csv].[schedule_season]' />
+          <map key='[schedule_week (nflpickem.csv)]' value='[nflpickem.csv].[schedule_week]' />
+          <map key='[schedule_week (spreads.csv)]' value='[spreads.csv].[schedule_week]' />
+          <map key='[schedule_week (teamScoring.csv)]' value='[teamScoring.csv].[schedule_week]' />
+          <map key='[schedule_week (weather.csv)]' value='[weather.csv].[schedule_week]' />
+          <map key='[schedule_week]' value='[scores.csv].[schedule_week]' />
+          <map key='[score_avg_pts_against_roll_lag.x]' value='[teamScoring.csv].[score_avg_pts_against_roll_lag.x]' />
+          <map key='[score_avg_pts_against_roll_lag.y]' value='[teamScoring.csv].[score_avg_pts_against_roll_lag.y]' />
+          <map key='[score_avg_pts_for_roll_lag.x]' value='[teamScoring.csv].[score_avg_pts_for_roll_lag.x]' />
+          <map key='[score_avg_pts_for_roll_lag.y]' value='[teamScoring.csv].[score_avg_pts_for_roll_lag.y]' />
+          <map key='[score_away]' value='[scores.csv].[score_away]' />
+          <map key='[score_home]' value='[scores.csv].[score_home]' />
+          <map key='[score_total_predicted]' value='[nflpickem.csv].[score_total_predicted]' />
+          <map key='[spread_favorite]' value='[spreads.csv].[spread_favorite]' />
+          <map key='[stadium]' value='[weather.csv].[stadium]' />
+          <map key='[stadium_neutral]' value='[scores.csv].[stadium_neutral]' />
+          <map key='[team_away_id (nflpickem.csv)]' value='[nflpickem.csv].[team_away_id]' />
+          <map key='[team_away_id (teamScoring.csv)]' value='[teamScoring.csv].[team_away_id]' />
+          <map key='[team_away_id]' value='[scores.csv].[team_away_id]' />
+          <map key='[team_away_win_prob]' value='[nflpickem.csv].[team_away_win_prob]' />
+          <map key='[team_favorite_id]' value='[spreads.csv].[team_favorite_id]' />
+          <map key='[team_home_id (nflpickem.csv)]' value='[nflpickem.csv].[team_home_id]' />
+          <map key='[team_home_id (teamScoring.csv)]' value='[teamScoring.csv].[team_home_id]' />
+          <map key='[team_home_id (weather.csv)]' value='[weather.csv].[team_home_id]' />
+          <map key='[team_home_id]' value='[scores.csv].[team_home_id]' />
+          <map key='[team_home_win_prob]' value='[nflpickem.csv].[team_home_win_prob]' />
+          <map key='[team_winner_ats]' value='[nflpickem.csv].[team_winner_ats]' />
+          <map key='[team_winner_predicted]' value='[nflpickem.csv].[team_winner_predicted]' />
+          <map key='[weather_detail]' value='[weather.csv].[weather_detail]' />
+          <map key='[weather_humidity]' value='[weather.csv].[weather_humidity]' />
+          <map key='[weather_temperature]' value='[weather.csv].[weather_temperature]' />
+          <map key='[weather_wind_mph]' value='[weather.csv].[weather_wind_mph]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>game_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[game_id]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>game_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_season</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[schedule_season]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>schedule_season</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_week</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[schedule_week]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>schedule_week</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[schedule_date]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>schedule_date</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_home_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_home_id]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>team_home_id</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_away_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_away_id]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>team_away_id</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>score_home</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[score_home]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>score_home</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>score_away</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[score_away]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>score_away</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stadium_neutral</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[stadium_neutral]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>stadium_neutral</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_playoff</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[schedule_playoff]</local-name>
+            <parent-name>[scores.csv]</parent-name>
+            <remote-alias>schedule_playoff</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (nflpickem.csv)]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_week</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[schedule_week (nflpickem.csv)]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>schedule_week</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[schedule_date (nflpickem.csv)]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>schedule_date</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_home_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_home_id (nflpickem.csv)]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>team_home_id</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_away_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_away_id (nflpickem.csv)]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>team_away_id</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_winner_predicted</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_winner_predicted]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>team_winner_predicted</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_winner_ats</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_winner_ats]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>team_winner_ats</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_home_win_prob</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[team_home_win_prob]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>team_home_win_prob</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_away_win_prob</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[team_away_win_prob]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>team_away_win_prob</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>over_under_pick</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[over_under_pick]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>over_under_pick</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>score_total_predicted</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[score_total_predicted]</local-name>
+            <parent-name>[nflpickem.csv]</parent-name>
+            <remote-alias>score_total_predicted</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (teamScoring.csv)]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>game_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[game_id (teamScoring.csv)]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>game_id</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_season</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[schedule_season (teamScoring.csv)]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>schedule_season</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_week</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[schedule_week (teamScoring.csv)]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>schedule_week</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[schedule_date (teamScoring.csv)]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>schedule_date</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_home_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_home_id (teamScoring.csv)]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>team_home_id</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_away_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_away_id (teamScoring.csv)]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>team_away_id</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>score_avg_pts_for_roll_lag.x</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[score_avg_pts_for_roll_lag.x]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>score_avg_pts_for_roll_lag.x</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>score_avg_pts_against_roll_lag.x</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[score_avg_pts_against_roll_lag.x]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>score_avg_pts_against_roll_lag.x</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>score_avg_pts_for_roll_lag.y</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[score_avg_pts_for_roll_lag.y]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>score_avg_pts_for_roll_lag.y</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>score_avg_pts_against_roll_lag.y</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[score_avg_pts_against_roll_lag.y]</local-name>
+            <parent-name>[teamScoring.csv]</parent-name>
+            <remote-alias>score_avg_pts_against_roll_lag.y</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[spreads.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (spreads.csv)]</local-name>
+            <parent-name>[spreads.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>game_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[game_id (spreads.csv)]</local-name>
+            <parent-name>[spreads.csv]</parent-name>
+            <remote-alias>game_id</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_season</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[schedule_season (spreads.csv)]</local-name>
+            <parent-name>[spreads.csv]</parent-name>
+            <remote-alias>schedule_season</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_week</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[schedule_week (spreads.csv)]</local-name>
+            <parent-name>[spreads.csv]</parent-name>
+            <remote-alias>schedule_week</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[schedule_date (spreads.csv)]</local-name>
+            <parent-name>[spreads.csv]</parent-name>
+            <remote-alias>schedule_date</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_favorite_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_favorite_id]</local-name>
+            <parent-name>[spreads.csv]</parent-name>
+            <remote-alias>team_favorite_id</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>spread_favorite</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[spread_favorite]</local-name>
+            <parent-name>[spreads.csv]</parent-name>
+            <remote-alias>spread_favorite</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>over_under_line</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[over_under_line]</local-name>
+            <parent-name>[spreads.csv]</parent-name>
+            <remote-alias>over_under_line</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (weather.csv)]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>game_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[game_id (weather.csv)]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>game_id</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_season</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[schedule_season (weather.csv)]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>schedule_season</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_week</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[schedule_week (weather.csv)]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>schedule_week</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>schedule_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[schedule_date (weather.csv)]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>schedule_date</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team_home_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team_home_id (weather.csv)]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>team_home_id</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stadium</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stadium]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>stadium</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>weather_temperature</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[weather_temperature]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>weather_temperature</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>weather_wind_mph</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[weather_wind_mph]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>weather_wind_mph</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>weather_humidity</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[weather_humidity]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>weather_humidity</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>weather_detail</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[weather_detail]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>weather_detail</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Actual Winner' datatype='string' name='[Calculation_1423137498874261504]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [score_home] &gt; [score_away] THEN [team_home_id] ELSEIF [score_away] &gt; [score_home] THEN [team_away_id] ELSE &quot;TIE&quot;  END' />
+      </column>
+      <column caption='Actual Game Total' datatype='integer' name='[Calculation_649925737533591554]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[score_home] + [score_away]' />
+      </column>
+      <column datatype='integer' hidden='true' name='[F1]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Game Id (Spreads.Csv)' datatype='string' name='[game_id (spreads.csv)]' role='dimension' type='nominal' />
+      <column caption='game id (teamScoring.csv)' datatype='string' name='[game_id (teamScoring.csv)]' role='dimension' type='nominal' />
+      <column caption='Game Id (Weather.Csv)' datatype='string' name='[game_id (weather.csv)]' role='dimension' type='nominal' />
+      <column caption='Game Id' datatype='string' name='[game_id]' role='dimension' type='nominal' />
+      <column caption='Over Under Line' datatype='string' name='[over_under_line]' role='dimension' type='nominal' />
+      <column caption='Over Under Pick' datatype='string' name='[over_under_pick]' role='dimension' type='nominal' />
+      <column caption='Schedule Date (Nflpickem.Csv)' datatype='date' name='[schedule_date (nflpickem.csv)]' role='dimension' type='quantitative' />
+      <column caption='Schedule Date (Spreads.Csv)' datatype='date' name='[schedule_date (spreads.csv)]' role='dimension' type='ordinal' />
+      <column caption='schedule date (teamScoring.csv)' datatype='date' name='[schedule_date (teamScoring.csv)]' role='dimension' type='ordinal' />
+      <column caption='Schedule Date (Weather.Csv)' datatype='date' name='[schedule_date (weather.csv)]' role='dimension' type='ordinal' />
+      <column caption='Schedule Date' datatype='date' name='[schedule_date]' role='dimension' type='ordinal' />
+      <column caption='Schedule Playoff' datatype='boolean' name='[schedule_playoff]' role='dimension' type='nominal' />
+      <column caption='Schedule Season (Spreads.Csv)' datatype='integer' name='[schedule_season (spreads.csv)]' role='measure' type='quantitative' />
+      <column caption='schedule season (teamScoring.csv)' datatype='integer' name='[schedule_season (teamScoring.csv)]' role='measure' type='quantitative' />
+      <column caption='Schedule Season (Weather.Csv)' datatype='integer' name='[schedule_season (weather.csv)]' role='measure' type='ordinal' />
+      <column caption='Schedule Season' datatype='integer' name='[schedule_season]' role='measure' type='ordinal' />
+      <column caption='Schedule Week (Nflpickem.Csv)' datatype='integer' name='[schedule_week (nflpickem.csv)]' role='dimension' type='quantitative' />
+      <column caption='Schedule Week (Spreads.Csv)' datatype='integer' name='[schedule_week (spreads.csv)]' role='dimension' type='ordinal' />
+      <column caption='schedule week (teamScoring.csv)' datatype='integer' name='[schedule_week (teamScoring.csv)]' role='dimension' type='quantitative' />
+      <column caption='Schedule Week (Weather.Csv)' datatype='integer' name='[schedule_week (weather.csv)]' role='dimension' type='quantitative' />
+      <column caption='Schedule Week' datatype='integer' name='[schedule_week]' role='dimension' type='ordinal' />
+      <column caption='Score Avg Pts Against Roll Lag.X' datatype='string' name='[score_avg_pts_against_roll_lag.x]' role='dimension' type='nominal' />
+      <column caption='Score Avg Pts Against Roll Lag.Y' datatype='string' name='[score_avg_pts_against_roll_lag.y]' role='dimension' type='nominal' />
+      <column caption='Score Avg Pts For Roll Lag.X' datatype='string' name='[score_avg_pts_for_roll_lag.x]' role='dimension' type='nominal' />
+      <column caption='Score Avg Pts For Roll Lag.Y' datatype='string' name='[score_avg_pts_for_roll_lag.y]' role='dimension' type='nominal' />
+      <column caption='Score Away' datatype='integer' name='[score_away]' role='measure' type='quantitative' />
+      <column caption='Score Home' datatype='integer' name='[score_home]' role='measure' type='quantitative' />
+      <column caption='Score Total Predicted' datatype='real' name='[score_total_predicted]' role='measure' type='quantitative' />
+      <column caption='Spread Favorite' datatype='string' name='[spread_favorite]' role='dimension' type='nominal' />
+      <column caption='Stadium' datatype='string' name='[stadium]' role='dimension' type='nominal' />
+      <column caption='Stadium Neutral' datatype='boolean' name='[stadium_neutral]' role='dimension' type='nominal' />
+      <column caption='Team Away Id (Nflpickem.Csv)' datatype='string' name='[team_away_id (nflpickem.csv)]' role='dimension' type='nominal' />
+      <column caption='team away id (teamScoring.csv)' datatype='string' name='[team_away_id (teamScoring.csv)]' role='dimension' type='nominal' />
+      <column caption='Team Away Id' datatype='string' name='[team_away_id]' role='dimension' type='nominal' />
+      <column caption='Team Away Win Prob' datatype='real' name='[team_away_win_prob]' role='measure' type='quantitative' />
+      <column caption='Team Favorite Id' datatype='string' name='[team_favorite_id]' role='dimension' type='nominal' />
+      <column caption='Team Home Id (Nflpickem.Csv)' datatype='string' name='[team_home_id (nflpickem.csv)]' role='dimension' type='nominal' />
+      <column caption='team home id (teamScoring.csv)' datatype='string' name='[team_home_id (teamScoring.csv)]' role='dimension' type='nominal' />
+      <column caption='Team Home Id (Weather.Csv)' datatype='string' name='[team_home_id (weather.csv)]' role='dimension' type='nominal' />
+      <column caption='Team Home Id' datatype='string' name='[team_home_id]' role='dimension' type='nominal' />
+      <column caption='Team Home Win Prob' datatype='real' name='[team_home_win_prob]' role='measure' type='quantitative' />
+      <column caption='Team Winner Ats' datatype='string' name='[team_winner_ats]' role='dimension' type='nominal' />
+      <column caption='Team Winner Predicted' datatype='string' name='[team_winner_predicted]' role='dimension' type='nominal' />
+      <column caption='Weather Detail' datatype='string' name='[weather_detail]' role='dimension' type='nominal' />
+      <column caption='Weather Humidity' datatype='real' name='[weather_humidity]' role='measure' type='quantitative' />
+      <column caption='Weather Temperature' datatype='string' name='[weather_temperature]' role='dimension' type='nominal' />
+      <column caption='Weather Wind Mph' datatype='string' name='[weather_wind_mph]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_1423137498874261504]' derivation='None' name='[none:Calculation_1423137498874261504:nk]' pivot='key' type='nominal' />
+      <column-instance column='[team_home_id]' derivation='None' name='[none:team_home_id:nk]' pivot='key' type='nominal' />
+      <column-instance column='[team_winner_predicted]' derivation='None' name='[none:team_winner_predicted:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_649925737533591554]' derivation='Sum' name='[sum:Calculation_649925737533591554:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[score_total_predicted]' derivation='Sum' name='[sum:score_total_predicted:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.776978' measure-ordering='alphabetic' measure-percentage='0.223022' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='shape' field='[none:team_home_id:nk]' type='shape'>
+            <map to='circle'>
+              <bucket>&quot;DAL&quot;</bucket>
+            </map>
+            <map to='plus'>
+              <bucket>&quot;NE&quot;</bucket>
+            </map>
+            <map to='square'>
+              <bucket>&quot;LAR&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:team_home_id:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;CLE&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;TB&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;DAL&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;NO&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;BUF&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;PHI&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;HOU&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;DEN&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;TEN&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;CAR&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;PIT&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;MIA&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;ARI&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;NYG&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;LAC&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;CHI&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;SEA&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;IND&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;JAX&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;LAR&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;MIN&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;DET&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;WAS&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;CIN&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;SF&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;ATL&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;NE&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;NYJ&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;KC&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;GB&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;BAL&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;OAK&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:score_total_predicted:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:Calculation_649925737533591554:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:team_winner_predicted:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;ATL (88\%)&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;CHI (58\%)&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;GB (60\%)&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;KC (78\%)&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;LAR (87\%)&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;LAR (88\%)&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;NO (59\%)&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;PHI (82\%)&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;TB (85\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;ARI (66\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;CAR (57\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;DEN (66\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;JAX (53\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;KC (56\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;LAC (94\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;LAR (57\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;NE (62\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;NYJ (52\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;SEA (67\%)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;WAS (86\%)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;ATL (55\%)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;CAR (72\%)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;DET (66\%)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;JAX (80\%)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;KC (71\%)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;LAR (74\%)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;NE (83\%)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;PHI (72\%)&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;SF (67\%)&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;CLE (64\%)&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;KC (70\%)&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;BAL (75\%)&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;CIN (73\%)&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;HOU (67\%)&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;LAC (54\%)&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;MIA (59\%)&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;NE (94\%)&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;NO (82\%)&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;PIT (67\%)&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;TEN (69\%)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;ATL (92\%)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;CHI (77\%)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;GB (63\%)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;KC (92\%)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;LAR (89\%)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;NE (52\%)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;NO (60\%)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;PHI (85\%)&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;TEN (56\%)&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;ATL (63\%)&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;CAR (73\%)&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;DET (70\%)&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;JAX (90\%)&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;LAR (77\%)&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;NE (84\%)&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;PHI (74\%)&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;SF (75\%)&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;KC (93\%)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;BUF (76\%)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;DEN (55\%)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;IND (78\%)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;LAC (89\%)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;MIN (82\%)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;NYG (51\%)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;SEA (56\%)&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;WAS (62\%)&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;ARI (67\%)&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;CAR (58\%)&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;DEN (83\%)&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;JAX (56\%)&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;LAR (65\%)&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;NE (74\%)&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;NYJ (80\%)&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;SEA (71\%)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;BUF (70\%)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;DAL (76\%)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;IND (53\%)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;KC (87\%)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;LAC (83\%)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;MIN (80\%)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;NO (97\%)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;PIT (98\%)&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;WAS (58\%)&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;ATL (74\%)&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;CHI (51\%)&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;DET (82\%)&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;KC (57\%)&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;LAR (81\%)&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;NE (89\%)&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;PHI (75\%)&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;TB (62\%)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;BAL (93\%)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;CIN (84\%)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;HOU (80\%)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;LAC (58\%)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;MIA (78\%)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;NE (96\%)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;NO (83\%)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;PIT (84\%)&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;TEN (70\%)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;BUF (51\%)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;DAL (71\%)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;HOU (83\%)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;LAC (63\%)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;MIN (53\%)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;NE (99\%)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;NO (85\%)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;PIT (87\%)&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;TEN (86\%)&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;BUF (74\%)&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;DAL (83\%)&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;IND (72\%)&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;LAC (87\%)&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;MIN (81\%)&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;NYG (50\%)&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;SEA (54\%)&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;WAS (61\%)&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;CAR (52\%)&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;DEN (60\%)&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;JAX (51\%)&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;LAC (92\%)&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;MIN (90\%)&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;NYG (56\%)&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;SEA (64\%)&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;WAS (81\%)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;BAL (52\%)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;CHI (80\%)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;GB (76\%)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;KC (96\%)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;MIA (50\%)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;NE (67\%)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;NO (74\%)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;PHI (86\%)&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;TEN (61\%)&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;KC (72\%)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;ATL (75\%)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;CHI (57\%)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;GB (55\%)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;KC (65\%)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;LAR (82\%)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;LAR (86\%)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;NE (93\%)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;PHI (78\%)&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;TB (63\%)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;ARI (70\%)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;CAR (62\%)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;DET (51\%)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;JAX (72\%)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;LAR (60\%)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;LAR (71\%)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;NE (77\%)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;OAK (56\%)&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;SEA (85\%)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;BUF (61\%)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;DAL (72\%)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;HOU (88\%)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;LAC (76\%)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;MIN (61\%)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;NO (89\%)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;PIT (89\%)&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;WAS (57\%)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;BAL (56\%)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;CIN (55\%)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;HOU (62\%)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;LAC (51\%)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;MIA (54\%)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;NO (76\%)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;PIT (63\%)&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;TEN (65\%)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;ARI (80\%)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;CAR (64\%)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;DET (58\%)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;JAX (74\%)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;LAR (73\%)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;NE (82\%)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;PHI (67\%)&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;SF (66\%)&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='shape' field='[none:Calculation_1423137498874261504:nk]' type='shape'>
+            <map to='asterisk'>
+              <bucket>&quot;CAR&quot;</bucket>
+            </map>
+            <map to='asterisk'>
+              <bucket>&quot;NE&quot;</bucket>
+            </map>
+            <map to='asterisk'>
+              <bucket>&quot;NO&quot;</bucket>
+            </map>
+            <map to='asterisk'>
+              <bucket>&quot;OAK&quot;</bucket>
+            </map>
+            <map to='circle'>
+              <bucket>&quot;ARI&quot;</bucket>
+            </map>
+            <map to='circle'>
+              <bucket>&quot;CLE&quot;</bucket>
+            </map>
+            <map to='circle'>
+              <bucket>&quot;LAR&quot;</bucket>
+            </map>
+            <map to='circle'>
+              <bucket>&quot;SF&quot;</bucket>
+            </map>
+            <map to='diamond'>
+              <bucket>&quot;CHI&quot;</bucket>
+            </map>
+            <map to='diamond'>
+              <bucket>&quot;DAL&quot;</bucket>
+            </map>
+            <map to='diamond'>
+              <bucket>&quot;WAS&quot;</bucket>
+            </map>
+            <map to='down-triangle'>
+              <bucket>&quot;ATL&quot;</bucket>
+            </map>
+            <map to='down-triangle'>
+              <bucket>&quot;IND&quot;</bucket>
+            </map>
+            <map to='down-triangle'>
+              <bucket>&quot;SEA&quot;</bucket>
+            </map>
+            <map to='left-triangle'>
+              <bucket>&quot;BAL&quot;</bucket>
+            </map>
+            <map to='left-triangle'>
+              <bucket>&quot;JAX&quot;</bucket>
+            </map>
+            <map to='left-triangle'>
+              <bucket>&quot;MIA&quot;</bucket>
+            </map>
+            <map to='plus'>
+              <bucket>&quot;GB&quot;</bucket>
+            </map>
+            <map to='plus'>
+              <bucket>&quot;LAC&quot;</bucket>
+            </map>
+            <map to='plus'>
+              <bucket>&quot;NYG&quot;</bucket>
+            </map>
+            <map to='plus'>
+              <bucket>&quot;PHI&quot;</bucket>
+            </map>
+            <map to='right-triangle'>
+              <bucket>&quot;CIN&quot;</bucket>
+            </map>
+            <map to='right-triangle'>
+              <bucket>&quot;DEN&quot;</bucket>
+            </map>
+            <map to='right-triangle'>
+              <bucket>&quot;MIN&quot;</bucket>
+            </map>
+            <map to='square'>
+              <bucket>&quot;DET&quot;</bucket>
+            </map>
+            <map to='square'>
+              <bucket>&quot;KC&quot;</bucket>
+            </map>
+            <map to='square'>
+              <bucket>&quot;TB&quot;</bucket>
+            </map>
+            <map to='times'>
+              <bucket>&quot;BUF&quot;</bucket>
+            </map>
+            <map to='times'>
+              <bucket>&quot;NYJ&quot;</bucket>
+            </map>
+            <map to='times'>
+              <bucket>&quot;TIE&quot;</bucket>
+            </map>
+            <map to='triangle'>
+              <bucket>&quot;HOU&quot;</bucket>
+            </map>
+            <map to='triangle'>
+              <bucket>&quot;PIT&quot;</bucket>
+            </map>
+            <map to='triangle'>
+              <bucket>&quot;TEN&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='teams+' name='federated.1g2h84q0rvn71y1111p1u0l1kilb' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1g2h84q0rvn71y1111p1u0l1kilb'>
+            <column caption='Actual Winner' datatype='string' name='[Calculation_1423137498874261504]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [score_home] &gt; [score_away] THEN [team_home_id] ELSEIF [score_away] &gt; [score_home] THEN [team_away_id] ELSE &quot;TIE&quot;  END' />
+            </column>
+            <column caption='Actual Game Total' datatype='integer' name='[Calculation_649925737533591554]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[score_home] + [score_away]' />
+            </column>
+            <column-instance column='[schedule_season (weather.csv)]' derivation='Attribute' name='[attr:schedule_season (weather.csv):ok]' pivot='key' type='ordinal' />
+            <column caption='Game Id' datatype='string' name='[game_id]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1423137498874261504]' derivation='None' name='[none:Calculation_1423137498874261504:nk]' pivot='key' type='nominal' />
+            <column-instance column='[game_id]' derivation='None' name='[none:game_id:nk]' pivot='key' type='nominal' />
+            <column-instance column='[schedule_date]' derivation='None' name='[none:schedule_date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[team_away_id]' derivation='None' name='[none:team_away_id:nk]' pivot='key' type='nominal' />
+            <column-instance column='[team_home_id]' derivation='None' name='[none:team_home_id:nk]' pivot='key' type='nominal' />
+            <column-instance column='[team_winner_predicted]' derivation='None' name='[none:team_winner_predicted:nk]' pivot='key' type='nominal' />
+            <column caption='Schedule Date' datatype='date' name='[schedule_date]' role='dimension' type='ordinal' />
+            <column caption='Schedule Season (Weather.Csv)' datatype='integer' name='[schedule_season (weather.csv)]' role='measure' type='ordinal' />
+            <column caption='Schedule Season' datatype='integer' name='[schedule_season]' role='measure' type='ordinal' />
+            <column caption='Score Away' datatype='integer' name='[score_away]' role='measure' type='quantitative' />
+            <column caption='Score Home' datatype='integer' name='[score_home]' role='measure' type='quantitative' />
+            <column caption='Score Total Predicted' datatype='real' name='[score_total_predicted]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_649925737533591554]' derivation='Sum' name='[sum:Calculation_649925737533591554:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[schedule_season]' derivation='Sum' name='[sum:schedule_season:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[score_total_predicted]' derivation='Sum' name='[sum:score_total_predicted:qk]' pivot='key' type='quantitative' />
+            <column caption='Team Away Id' datatype='string' name='[team_away_id]' role='dimension' type='nominal' />
+            <column caption='Team Home Id' datatype='string' name='[team_home_id]' role='dimension' type='nominal' />
+            <column caption='Team Winner Predicted' datatype='string' name='[team_winner_predicted]' role='dimension' type='nominal' />
+            <column-instance column='[schedule_date]' derivation='Year' name='[yr:schedule_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[attr:schedule_season (weather.csv):ok]'>
+            <groupfilter function='member' level='[attr:schedule_season (weather.csv):ok]' member='2018' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:game_id:nk]'>
+            <groupfilter function='level-members' level='[none:game_id:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:schedule_date:qk]' included-values='in-range'>
+            <min>#1978-12-30#</min>
+            <max>#2019-02-03#</max>
+          </filter>
+          <filter class='categorical' column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_away_id:nk]'>
+            <groupfilter function='level-members' level='[none:team_away_id:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_home_id:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:team_home_id:nk]' member='&quot;LAR&quot;' />
+              <groupfilter function='member' level='[none:team_home_id:nk]' member='&quot;NE&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[yr:schedule_date:ok]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[yr:schedule_date:ok]' />
+              <groupfilter function='member' level='[yr:schedule_date:ok]' member='2019' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:game_id:nk]</column>
+            <column>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_home_id:nk]</column>
+            <column>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_away_id:nk]</column>
+            <column>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:schedule_date:qk]</column>
+            <column>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[attr:schedule_season (weather.csv):ok]</column>
+            <column>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[yr:schedule_date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:Calculation_649925737533591554:qk]' value='n0;-0' />
+            <format attr='text-format' field='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:score_total_predicted:qk]' value='n0;-0' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:schedule_season:ok]' value='n0;-0' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-color' id='refline0' value='#000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <shape column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:Calculation_1423137498874261504:nk]' />
+              <color column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_home_id:nk]' />
+              <lod column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:schedule_season:ok]' />
+              <lod column='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_winner_predicted:nk]' />
+            </encodings>
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
+          </pane>
+        </panes>
+        <rows>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:Calculation_649925737533591554:qk]</rows>
+        <cols>([federated.1g2h84q0rvn71y1111p1u0l1kilb].[yr:schedule_date:ok] * [federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:score_total_predicted:qk])</cols>
+      </table>
+      <simple-id uuid='{AD38C15E-8272-4C11-9A33-0A766365D56C}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_home_id:nk]' type='color' />
+            <card pane-specification-id='1' param='[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:Calculation_1423137498874261504:nk]' type='shape' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[:Measure Names]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[Multiple Values]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[attr:schedule_season (weather.csv):ok]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[max:score_avg_pts_against_roll_lag.x:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:Calculation_1423137498874261504:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:game_id (spreads.csv):nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:game_id:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:over_under_line:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:over_under_pick:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:schedule_date (teamScoring.csv):qk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:schedule_date:ok]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:schedule_date:qk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:schedule_week (nflpickem.csv):qk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:schedule_week:ok]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:schedule_week:qk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:score_avg_pts_against_roll_lag.x:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:spread_favorite:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_away_id:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_favorite_id:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_home_id (teamScoring.csv):nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[none:team_home_id:nk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:schedule_season (weather.csv):ok]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[sum:schedule_season:ok]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[twk:schedule_date:qk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[tyr:schedule_date:qk]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[yr:schedule_date (spreads.csv):ok]</field>
+            <field>[federated.1g2h84q0rvn71y1111p1u0l1kilb].[yr:schedule_date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{64B090CE-FAE3-4E0C-9B8A-8CDE5BC8EEE8}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
